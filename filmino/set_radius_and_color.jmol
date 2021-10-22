@@ -1,0 +1,4 @@
+color hydrogen [0,200,255]
+{hydrogen}.vdw=1.2
+color lithium [130,000,000]
+{lithium}.vdw=1.2

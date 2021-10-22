@@ -1,0 +1,13 @@
+# this is a jmol script, import it in File->Script editor, and Run it!
+frame 1
+num_frames = getProperty("modelInfo.modelCount")
+for (var i = 1; i <= num_frames; i = i+1)
+   var filename = "movie"+("00000"+i)[-4][0]+".gif"
+   write IMAGE 800 600 GIF @filename
+   frame next
+end for
+
+
+# then one can convert the frames to an animatied gif e.g. with
+# convert -delay 50 movie*.gif -loop 100 animation.gif
+

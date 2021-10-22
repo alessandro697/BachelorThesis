@@ -1,0 +1,15 @@
+# this is a jmol script: please import it in File->Script Editor, and Run it!
+frame 1
+num_frames = getProperty("modelInfo.modelCount")
+for (var i = 1; i <= num_frames; i = i+1)
+   var filename = "movie"+("00000"+i)[-4][0]+".png"
+   write IMAGE 800 600 PNG @filename
+   frame next
+end for
+
+
+# then one can convert the frames to an animation movie e.g. with
+# mencoder "mf://movie*.png" -mf fps=5 -o movie.avi -ovc lavc -lavcopts vcodec=mpeg4
+
+# of course, mencoder needs to be installed
+# if it isn't:  apt-get install mencoder  (as root or in sudo)
