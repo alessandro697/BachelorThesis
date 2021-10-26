@@ -1,0 +1,224 @@
+% draft 3rd-year diploma thesis, by Nick Manini, 2019/01/03
+\documentclass[a4paper,12pt]{article}
+\usepackage[english]{babel} % or other languages, e.g:
+%\usepackage[italian]{babel} % needs debian package texlive-lang-italian
+%\usepackage[latin1]{inputenc} % to use keyboard accented characters
+\usepackage[a-1b]{pdfx} % to generate valid PDFA
+                 % see https://www.mathstat.dal.ca/~selinger/pdfa/ for details
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{breakurl}
+\usepackage{newtxtext}
+\usepackage[varvw]{newtxmath}
+\usepackage[width=0.8\textwidth]{caption}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{verbatim}
+\usepackage{xmpincl}
+\usepackage{appendix}
+\usepackage{placeins}
+
+% page size tuning:
+\setlength{\oddsidemargin}{8mm}   % Distance from the left edge -1 inch
+\setlength{\textwidth}{145mm}     % Horizontal width of the standard text
+\setlength{\topmargin}{2mm}       % Distance from top to PAGE'S HEAD -1 inch
+\setlength{\textheight}{225mm}    % Vertical length of the page body
+\setlength{\headheight}{0mm}      % Height of a box containing the head
+\setlength{\parskip}{0.5mm}       % Extra vertical space before a paragraph
+\setlength{\parindent}{9mm}       % Indentation at paragraph beginning
+\linespread{1.12}                 % Line-to-line spacing
+\renewcommand{\floatpagefraction}{.95} % for text coexisting with figs and tabs
+%\renewcommand{\textfraction}{0.02}% more or less equiv. to the above
+
+
+%comandi veloci per le unità naturali
+\newcommand{\f}[0]{\frac{V_0}{a}}
+\newcommand{\g}[0]{\frac{1}{a}\sqrt{\frac{V_0}{m}}}
+\newcommand{\p}[0]{\frac{V_0}{a^6}}
+\newcommand{\tim}[0]{a\sqrt{\frac{m}{V_0}}}
+\newcommand{\freq}[0]{\frac{1}{a}\sqrt{\frac{V_0}{m}}}
+\newcommand{\vel}[0]{\sqrt{\frac{V_0}{m}}}
+
+
+
+\begin{document}
+
+\title{{\bf \huge
+    Dynamical resonances in a bistable molecular model}}
+\author{Alessandro Rizzi}
+\date{October 6, 2021} % the exact date of graduation, when available
+
+\makeatletter
+\let\mytitle\@title
+\let\myauthor\@author
+\makeatother
+
+\author{\myauthor \\
+  Dipartimento di Fisica, Universit\`a degli Studi di Milano,\\
+  Via Celoria 16, 20133 Milano, Italia
+}
+
+{ % heading page  -  frontespizio
+
+  \thispagestyle{empty}
+
+  \centerline{
+    \includegraphics[width=120mm,angle=0,clip=]{UniversitasMediolanensis.pdf}
+  }
+
+  \begin{center}
+    {\Large Facolt\`a di Scienze e Tecnologie \\
+      \vskip 2mm Laurea Triennale in Fisica }
+  \end{center}
+
+
+  \vskip 15mm
+  \begin{center}
+    \mytitle
+%    \huge \textbf{Titolazzo della tesi, if seems long\\go to newline}
+  \end{center}
+
+  {\large
+    \vskip20mm Relatore:  Prof. Nicola Manini
+    \vskip 1mm Correlatore: Prof. Luciano Reatto\\
+  }
+
+  \vskip2cm
+  \hskip9cm
+  \parbox[t]{7cm}
+         {\large 
+           \myauthor\\
+           Matricola n$^\circ$ $933340$\\
+           A.A. $2020$/$2021$\\
+           \vskip 0.5mm Codice PACS: 68.35.-p
+         }
+
+}
+
+
+\clearpage
+\thispagestyle{empty} \qquad
+
+\maketitle \thispagestyle{empty}
+\setcounter{page}{1}
+
+%---------------------------------------------------------
+\begin{abstract}
+We study the one-dimensional dynamics of a bistable diatomic molecule driven across a sinusoidal periodic corrugation by a constant force. We investigate in detail the wide-amplitude motions of the internal molecular coordinate $r$, their relation with the effective driving force acting on $r$ and elucidate their mechanisms.
+We also vary the driving force and other model parameters to address the resonances effects connected to the washboard frequency resulting from the sliding speed, both in the natural overdamped regime and in an hypothetical regime of weak damping. Finally, we evaluate the frictional contribution of the molecular dynamics.
+
+\vskip0.75cm
+\hskip5cm
+\parbox[t]{7cm}
+{
+Advisor: {\it Prof. Nicola Manini}\\
+Co-Advisor: {\it Prof. Luciano Reatto}
+}
+\end{abstract}
+%--------------------------------------------------------
+
+\clearpage
+%\setlength{\oddsidemargin}{12mm}
+\tableofcontents
+
+\clearpage
+
+%----------------------------------------------------------------------------
+\section{Introduction}
+%----------------------------------------------------------------------------
+
+	\input{sections/Introduction.tex}
+
+
+\section{The model}\label{model:sec}
+
+	\input{sections/The_model.tex}
+
+
+\section{Oscillations covering the maximum at $R_1$ and the minimum at $R_2$}\label{oscillations:sec}
+
+    \input{sections/Oscillations.tex}
+
+\section{Near-$R_2$ oscillation resonances}\label{resonances:sec}
+
+    \input{sections/Resonances.tex}
+    
+\section{The underdamped case}\label{underdamped:sec}
+
+    \input{sections/Underdamped.tex}   
+    
+\section{Different damping of the two atoms}\label{different:sec}
+
+    \input{sections/Different_gamma.tex}
+
+\section{Discussion and Conclusion}\label{conclusion:sec}
+
+	\input{sections/Discussion_and_Conclusion.tex}
+	
+	
+\clearpage	
+\appendix
+\section{The RKF45 integration method}\label{appendix:sec}
+
+    \input{sections/appendix.tex}
+    
+    
+%------------------------------------------------------------------
+%  BIBLIOGRAPHY
+%------------------------------------------------------------------
+\clearpage  % this may be useful in exceptional cases, e.g. here
+
+\addcontentsline{toc}{section}{References}
+\begin{thebibliography}{9}
+
+% note that the references must be listed in the same order as they are cited
+% in the text above:
+
+\bibitem{Cavallini}  % standard example of format for a thesis:
+G. Cavallini, {\it Studio dell’attrito in un modello
+molecolare bistabile}, bachelor thesis (University Milan, 2020), \url{http://materia.fisica.unimi.it/manini/theses/cavallini.pdf}.
+
+\bibitem{Fusco} 
+S. Gonçalves, C. Fusco, A. R. Bishop, and V. M. Kenkre, \textit{Bistability and
+hysteresis in the sliding friction of a dimer}. Phys. Rev. B \textbf{72}, 195418 (2005).
+
+\bibitem{Fasolino} 
+C. Fusco and A. Fasolino, \textit{Microscopic mechanisms of thermal and driven diffusion of non rigid molecules on surfaces}. Thin Solid Films \textbf{428}, 34 (2003).
+
+\bibitem{RKF45} 
+E. Fehlberg, Low-order classical Runge-Kutta formulas with stepsize control and their application to some heat transfer problems. National aeronautics and space administration Vol. \textbf{315}.  (1969).
+
+\bibitem{RKF45_b} 
+J. H. Mathews and K. K. Fink, \textit{Numerical Methods Using Matlab} (Pearson, 4th Edition, 2004)
+
+\bibitem{Mazzoldi} 
+P. Mazzoldi, M. Nigro, and C. Voci,  \textit{Fisica, Volume II} (EdiSES, 2nd Edition, 1998) 
+
+%\bibitem{VanossiRMP13} % Modeling friction: from nanoscale to mesoscale 
+%A. Vanossi, N. Manini, M. Urbakh, S. Zapperi, and E. Tosatti, Rev. Mod. Phys. {\bf 85}, 529 (2013).
+
+
+
+\end{thebibliography}
+
+%  Alternatively, to sort the references automatically
+%  you can use bibtex.  Comment out the 3 lines:
+%   \addcontentsline.. the \begin{thebibliography... and  the \end{thebibl..
+%  Move all \bibitem's into a biblio.tex file, process it with
+%  one of the convertbiblio scripts available at
+%    http://materia.fisica.unimi.it/manini/scripts.html
+%  with a command such as convertbiblio biblio.tex > biblio.bib
+%  Then uncomment the following 2 lines:  
+%\bibliographystyle{unsrt}
+%\bibliography{biblio}
+%  save and run:
+%               pdflatex tesi; bibtex tesi; pdflatex tesi; pdflatex tesi
+%  voila, the references are included and sorted in citation order!
+%  After more editing of the biblio.tex, re-run the convertbiblio and then
+%  the compilation line above, so that the references get updated
+\clearpage
+\thispagestyle{empty} \qquad
+\end{document}
+

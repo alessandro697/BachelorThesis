@@ -1,0 +1,16 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}% 
+\contentsline {section}{\numberline {2}The model}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Oscillations covering the maximum at $R_1$ and the minimum at $R_2$}{6}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}The effective driving force}{9}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Sign changes in $\qopname \relax o{sin}(\pi r /a)$}{11}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Negative values of $\qopname \relax o{sin}(\pi r /a)$}{11}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Higher values of the potential barrier $\delta $}{13}{subsection.3.4}% 
+\contentsline {section}{\numberline {4}Near-$R_2$ oscillation resonances}{13}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Extra friction}{18}{subsection.4.1}% 
+\contentsline {section}{\numberline {5}The underdamped case}{20}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Resonances}{21}{subsection.5.1}% 
+\contentsline {section}{\numberline {6}Different damping of the two atoms}{24}{section.6}% 
+\contentsline {section}{\numberline {7}Discussion and Conclusion}{26}{section.7}% 
+\contentsline {section}{\numberline {A}The RKF45 integration method}{28}{appendix.A}% 
+\contentsline {section}{References}{29}{equation.A.25}% 

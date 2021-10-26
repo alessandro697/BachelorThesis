@@ -1,0 +1,27 @@
+The Newton's equations of the motion Eqs.~\eqref{eq:x1} and~\eqref{eq:x2} are solved numerically with a Runge-Kutta-Fehlberg integration method~\cite{RKF45,RKF45_b}. This method is an evolution of the traditional fourth-order Runge-Kutta RK method, that uses a one-step integration. In the ordinary fourth-order RK, the integrand function is computed four times for each time step $h$, resulting in a precision of $\mathcal{O}(h^4)$. Reducing the integration time step, to e.g. $h/2$, improves the accuracy, but can result in a very large computing activity if the step is too small. The adopted RKF45 implementation aims to solve the problem by using an adaptive step-size approach, resulting in a precision improvement of $\mathcal{O}(h^5)$. 
+
+Once the initial and the final times of the integration are fixed, one chooses an initial time step $h$. The evolved function is computed with the fourth-order RK:
+\begin{equation}
+x(t+h)=x(t)+\frac{25}{216} K_{1}+\frac{1408}{2565} K_{3}+\frac{2197}{4104} K_{4}-\frac{1}{5} K_{5},
+\label{eq:RK4}
+\end{equation}
+where the constants are:
+\begin{align}
+ K_{1}=h f(t, x), \\
+K_{2}=h f\left(t+\frac{1}{4} h, x+\frac{1}{4} K_{1}\right), \\
+K_{3}=h f\left(t+\frac{3}{8} h, x+\frac{3}{32} K_{1}+\frac{9}{32} K_{2}\right), \\
+K_{4}=h f\left(t+\frac{12}{13} h, x+\frac{1932}{2197} K_{1}-\frac{7200}{2197} K_{2}+\frac{7296}{2197} K_{3}\right), \\
+K_{5}=h f\left(t+h, x+\frac{439}{216} K_{1}-8 K_{2}+\frac{3680}{513} K_{3}-\frac{845}{4104} K_{4}\right). 
+\end{align}
+
+We also compute the function with a fifth-order approximation: 
+\begin{equation}
+    x(t+h)=x(t)+\frac{16}{135} K_{1}+\frac{6656}{12825} K_{3}+\frac{28561}{56430} K_{4}-\frac{9}{50} K_{5}+\frac{2}{55} K_{6},
+    \label{eq:RK5}
+\end{equation}
+where $K_6$ is:
+\begin{equation}
+    K_{6}=h f\left(t+\frac{1}{2} h, x-\frac{8}{27} K_{1}+2 K_{2}-\frac{3544}{2565} K_{3}+\frac{1859}{4104} K_{4}-\frac{11}{40} K_{5}\right).
+\end{equation}
+
+Assuming that the fifth-order approximation gives an almost exact result, the difference between Eq.~\eqref{eq:RK5} and Eq.~\eqref{eq:RK4} provides an estimate of the error. If the error is larger than the required tolerance, the time step $h$ is rejected, and the procedure is repeated with a new time step $h/2$. On the contrary, if the error is far smaller than the required precision, the time step is rejected in favour of a new step $2h$, in order to optimise the computational effort. When the error and the required tolerance are similar, the time step is accepted and the integration proceed to the following point at $t+h$.
